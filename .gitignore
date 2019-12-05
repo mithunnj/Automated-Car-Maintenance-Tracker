@@ -1,0 +1,4 @@
+**/.DS_Store
+*.pyc
+set_env.sh
+__pycache__
