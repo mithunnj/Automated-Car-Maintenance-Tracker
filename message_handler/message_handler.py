@@ -48,7 +48,7 @@ def request_mileage():
     except Exception as e:
         print('\n' + CRED + 'Failed to send text message, with error: ' + e + CEND + '\n')
 
-def post_request(miles, kms):
+def post_request(miles, kms, manual=False, date=None):
     '''
     Input: <str> miles, kms : The mileage information in both units of measurement.
     Output: None
@@ -57,7 +57,7 @@ def post_request(miles, kms):
     '''
     
     payload = {
-        'date': str(datetime.datetime.now()),
+        'date': datetime.datetime.now().strftime("%Y-%m-%d") if not manual else date,
         'mileage_miles_total': miles,
         'mileage_kms_total': kms
     }
